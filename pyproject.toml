@@ -1,0 +1,77 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "t5x"
+dynamic = ["version"]
+description = "T5-eXtended in JAX"
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.11"
+authors = [
+    {name = "Google Inc.", email = "no-reply@google.com"},
+]
+keywords = ["text", "nlp", "machinelearning"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+    "airio @ git+https://github.com/google/airio@4e3b376a1eeedb7f20b58d331f81e72eda092b0d",
+    "absl-py==2.3.1",
+    "cached-property==2.0.1",
+    "flax==0.12.0",
+    "fiddle==0.3.0",
+    "gin-config==0.5.0",
+    "jax==0.7.2",
+    "jaxlib==0.7.2",
+    "jaxtyping==0.3.3",
+    "optax @ git+https://github.com/deepmind/optax@3fc6fb094e4f181e8f0e895eeaa2b943af46674d",
+    "orbax-checkpoint==0.11.25",
+    "tensorflow-cpu==2.19.1",
+    "tensorstore==0.1.78",
+]
+
+[project.optional-dependencies]
+gcp = [
+    "gevent",
+    "google-api-python-client",
+    "google-compute-engine",
+    "google-cloud-storage",
+    "oauth2client",
+]
+test = [
+    "pytest==8.4.2",
+    "t5==0.9.4",
+]
+tpu = [
+    "jax[tpu]==0.7.2",
+]
+gpu = [
+    "ipdb==0.13.9",
+    "fasttext==0.9.2",
+    "pysimdjson==5.0.2",
+    "pytablewriter==0.64.2",
+    "gdown==4.5.3",
+    "best-download==0.0.9",
+    "lm_dataformat==0.0.20",
+    "dllogger @ git+https://github.com/NVIDIA/dllogger",
+    "tfds-nightly",
+    "t5==0.9.4",
+]
+
+[project.urls]
+Homepage = "http://github.com/google-research/t5x"
+Repository = "http://github.com/google-research/t5x"
+
+[tool.setuptools.dynamic]
+version = {attr = "t5x.version.__version__"}
+
+[tool.setuptools.packages.find]
+include = ["t5x*"]
+
+[tool.setuptools.package-data]
+"*" = ["**/*.gin"]

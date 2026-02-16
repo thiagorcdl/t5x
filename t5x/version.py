@@ -12,10 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-r"""Separate file for storing the current version of T5X.
+"""Current version of T5X."""
 
-Stored in a separate file so that setup.py can reference the version without
-pulling in all the dependencies in __init__.py.
-"""
-
-__version__ = '0.0.0'
+__version__ = '0.0.1'
