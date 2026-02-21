@@ -8,6 +8,7 @@ dynamic = ["version"]
 description = "T5-eXtended in JAX"
 readme = "README.md"
 license = "Apache-2.0"
+license-files = ["LICENSE"]
 requires-python = ">=3.11"
 authors = [
     {name = "Google Inc.", email = "no-reply@google.com"},
@@ -52,7 +53,7 @@ tpu = [
 ]
 gpu = [
     "ipdb==0.13.9",
-    "fasttext==0.9.2",
+    "fasttext @ git+https://github.com/thiagorcdl/fastText#egg=fasttext",
     "pysimdjson==5.0.2",
     "pytablewriter==0.64.2",
     "gdown==4.5.3",
